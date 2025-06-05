@@ -1,0 +1,890 @@
+加载数据...
+数据形状: (96453, 12)
+列名: ['Formatted Date', 'Summary', 'Precip Type', 'Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)', 'Wind Bearing (degrees)', 'Visibility (km)', 'Loud Cover', 'Pressure (millibars)', 'Daily Summary']
+处理日期列: Formatted Date
+成功转换日期: 96453/96453 (100.0%)
+时间转换示例:
+  原始: 2006-04-01 00:00:00.000 +0200 -> UTC: 2006-03-31 22:00:00
+  原始: 2006-04-01 01:00:00.000 +0200 -> UTC: 2006-03-31 23:00:00
+  原始: 2006-04-01 02:00:00.000 +0200 -> UTC: 2006-04-01 00:00:00
+基于UTC时间的特征提取成功
+编码字符串列: Summary
+  Summary: 27 个唯一值
+  示例映射: {'Breezy': 0, 'Breezy and Dry': 1, 'Breezy and Foggy': 2}
+编码字符串列: Precip Type
+  Precip Type: 3 个唯一值
+  示例映射: {'rain': 0, 'snow': 1, 'unknown': 2}
+编码字符串列: Daily Summary
+  Daily Summary: 214 个唯一值
+  示例映射: {'Breezy and foggy starting in the evening.': 0, 'Breezy and foggy until morning.': 1, 'Breezy and mostly cloudy overnight.': 2}
+选择的特征列 (23 个): ['Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)', 'Wind Bearing (degrees)', 'Visibility (km)', 'Loud Cover', 'Pressure (millibars)', 'Hour', 'Month', 'Day', 'DayOfWeek', 'DayOfYear', 'Season', 'Hour_sin', 'Hour_cos', 'Month_sin', 'Month_cos', 'DayOfWeek_sin', 'DayOfWeek_cos', 'Summary_encoded', 'Precip Type_encoded', 'Daily Summary_encoded']
+  标准化: Temperature (C)
+  标准化: Apparent Temperature (C)
+  标准化: Humidity
+  标准化: Wind Speed (km/h)
+  标准化: Wind Bearing (degrees)
+  标准化: Visibility (km)
+  标准化: Pressure (millibars)
+
+数据预处理完成:
+最终数据形状: (96453, 23)
+特征列数量: 23
+包含NaN: 0
+包含Inf: 0
+特征类型分布:
+  原始数值特征: 8
+  时间特征 (基于UTC): 12
+  编码字符串特征: 3
+数据加载完成，形状: (96453, 23)
+特征列: ['Temperature (C)', 'Apparent Temperature (C)', 'Humidity', 'Wind Speed (km/h)', 'Wind Bearing (degrees)', 'Visibility (km)', 'Loud Cover', 'Pressure (millibars)', 'Hour', 'Month', 'Day', 'DayOfWeek', 'DayOfYear', 'Season', 'Hour_sin', 'Hour_cos', 'Month_sin', 'Month_cos', 'DayOfWeek_sin', 'DayOfWeek_cos', 'Summary_encoded', 'Precip Type_encoded', 'Daily Summary_encoded']
+
+开始 基础Transformer 在 Temperature (C) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.543663, Val Loss: 0.383553, LR: 0.001000
+Epoch 2/20: Train Loss: 0.405431, Val Loss: 0.421537, LR: 0.001000
+Epoch 3/20: Train Loss: 0.380053, Val Loss: 0.384204, LR: 0.001000
+Epoch 4/20: Train Loss: 0.363169, Val Loss: 0.378398, LR: 0.001000
+Epoch 5/20: Train Loss: 0.346473, Val Loss: 0.385751, LR: 0.001000
+Epoch 6/20: Train Loss: 0.337839, Val Loss: 0.383189, LR: 0.001000
+Epoch 7/20: Train Loss: 0.324716, Val Loss: 0.391403, LR: 0.001000
+Epoch 8/20: Train Loss: 0.311600, Val Loss: 0.400132, LR: 0.001000
+Epoch 9/20: Train Loss: 0.307425, Val Loss: 0.377245, LR: 0.001000
+Epoch 10/20: Train Loss: 0.296141, Val Loss: 0.368471, LR: 0.001000
+Epoch 11/20: Train Loss: 0.287227, Val Loss: 0.384735, LR: 0.001000
+Epoch 12/20: Train Loss: 0.279676, Val Loss: 0.384468, LR: 0.001000
+Epoch 13/20: Train Loss: 0.268969, Val Loss: 0.383297, LR: 0.001000
+Epoch 14/20: Train Loss: 0.266561, Val Loss: 0.379246, LR: 0.001000
+Epoch 15/20: Train Loss: 0.255529, Val Loss: 0.364370, LR: 0.001000
+Epoch 16/20: Train Loss: 0.248971, Val Loss: 0.369682, LR: 0.001000
+Epoch 17/20: Train Loss: 0.240015, Val Loss: 0.386368, LR: 0.001000
+Epoch 18/20: Train Loss: 0.233963, Val Loss: 0.374725, LR: 0.001000
+Epoch 19/20: Train Loss: 0.227737, Val Loss: 0.370525, LR: 0.001000
+Epoch 20/20: Train Loss: 0.226066, Val Loss: 0.387792, LR: 0.001000
+Early stopping at epoch 20
+加载最佳模型
+训练曲线已保存到: Training_基础Transformer.png
+预测对比图已保存到: Predictions_基础Transformer_Temperature_C.png
+性能指标图已保存到: Metrics_基础Transformer_Temperature_C.png
+
+基础Transformer 在 Temperature (C) 上的性能:
+MSE: 0.3822
+MAE: 0.4976
+RMSE: 0.6182
+R2: 0.5672
+MAPE: 217.2498
+Direction_Accuracy: 48.8884
+
+开始 局部注意力Transformer 在 Temperature (C) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.593970, Val Loss: 0.421613, LR: 0.001000
+Epoch 2/20: Train Loss: 0.467131, Val Loss: 0.405831, LR: 0.001000
+Epoch 3/20: Train Loss: 0.421281, Val Loss: 0.400446, LR: 0.001000
+Epoch 4/20: Train Loss: 0.392850, Val Loss: 0.368304, LR: 0.001000
+Epoch 5/20: Train Loss: 0.376109, Val Loss: 0.368247, LR: 0.001000
+Epoch 6/20: Train Loss: 0.358802, Val Loss: 0.352269, LR: 0.001000
+Epoch 7/20: Train Loss: 0.345973, Val Loss: 0.381824, LR: 0.001000
+Epoch 8/20: Train Loss: 0.334693, Val Loss: 0.346551, LR: 0.001000
+Epoch 9/20: Train Loss: 0.332749, Val Loss: 0.405852, LR: 0.001000
+Epoch 10/20: Train Loss: 0.320864, Val Loss: 0.350943, LR: 0.001000
+Epoch 11/20: Train Loss: 0.306245, Val Loss: 0.320492, LR: 0.001000
+Epoch 12/20: Train Loss: 0.286731, Val Loss: 0.407141, LR: 0.001000
+Epoch 13/20: Train Loss: 0.268108, Val Loss: 0.316025, LR: 0.001000
+Epoch 14/20: Train Loss: 0.248354, Val Loss: 0.287525, LR: 0.001000
+Epoch 15/20: Train Loss: 0.217503, Val Loss: 0.255365, LR: 0.001000
+Epoch 16/20: Train Loss: 0.203158, Val Loss: 0.267304, LR: 0.001000
+Epoch 17/20: Train Loss: 0.186951, Val Loss: 0.250619, LR: 0.001000
+Epoch 18/20: Train Loss: 0.184612, Val Loss: 0.251388, LR: 0.001000
+Epoch 19/20: Train Loss: 0.175763, Val Loss: 0.246599, LR: 0.001000
+Epoch 20/20: Train Loss: 0.174174, Val Loss: 0.233547, LR: 0.001000
+加载最佳模型
+训练曲线已保存到: Training_局部注意力Transformer.png
+预测对比图已保存到: Predictions_局部注意力Transformer_Temperature_C.png
+性能指标图已保存到: Metrics_局部注意力Transformer_Temperature_C.png
+
+局部注意力Transformer 在 Temperature (C) 上的性能:
+MSE: 0.2163
+MAE: 0.3647
+RMSE: 0.4651
+R2: 0.7550
+MAPE: 178.0861
+Direction_Accuracy: 72.5189
+
+开始 CNN-Transformer 在 Temperature (C) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.517849, Val Loss: 0.366326, LR: 0.001000
+Epoch 2/20: Train Loss: 0.376209, Val Loss: 0.347946, LR: 0.001000
+Epoch 3/20: Train Loss: 0.327151, Val Loss: 0.370408, LR: 0.001000
+Epoch 4/20: Train Loss: 0.300988, Val Loss: 0.274222, LR: 0.001000
+Epoch 5/20: Train Loss: 0.282121, Val Loss: 0.296071, LR: 0.001000
+Epoch 6/20: Train Loss: 0.276181, Val Loss: 0.229851, LR: 0.001000
+Epoch 7/20: Train Loss: 0.236085, Val Loss: 0.236651, LR: 0.001000
+Epoch 8/20: Train Loss: 0.181443, Val Loss: 0.189996, LR: 0.001000
+Epoch 9/20: Train Loss: 0.179181, Val Loss: 0.155101, LR: 0.001000
+Epoch 10/20: Train Loss: 0.191220, Val Loss: 0.166274, LR: 0.001000
+Epoch 11/20: Train Loss: 0.151940, Val Loss: 0.153984, LR: 0.001000
+Epoch 12/20: Train Loss: 0.145747, Val Loss: 0.151334, LR: 0.001000
+Epoch 13/20: Train Loss: 0.147272, Val Loss: 0.164730, LR: 0.001000
+Epoch 14/20: Train Loss: 0.131470, Val Loss: 0.144567, LR: 0.001000
+Epoch 15/20: Train Loss: 0.122982, Val Loss: 0.134113, LR: 0.001000
+Epoch 16/20: Train Loss: 0.123620, Val Loss: 0.137395, LR: 0.001000
+Epoch 17/20: Train Loss: 0.117441, Val Loss: 0.141923, LR: 0.001000
+Epoch 18/20: Train Loss: 0.112768, Val Loss: 0.145963, LR: 0.001000
+Epoch 19/20: Train Loss: 0.111606, Val Loss: 0.141625, LR: 0.001000
+Epoch 20/20: Train Loss: 0.102530, Val Loss: 0.144894, LR: 0.001000
+Early stopping at epoch 20
+加载最佳模型
+训练曲线已保存到: Training_CNN_Transformer.png
+预测对比图已保存到: Predictions_CNN_Transformer_Temperature_C.png
+性能指标图已保存到: Metrics_CNN_Transformer_Temperature_C.png
+
+CNN-Transformer 在 Temperature (C) 上的性能:
+MSE: 0.1106
+MAE: 0.2480
+RMSE: 0.3325
+R2: 0.8748
+MAPE: 131.8631
+Direction_Accuracy: 74.1715
+
+开始 LSTM 在 Temperature (C) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.487930, Val Loss: 0.306581, LR: 0.001000
+Epoch 2/20: Train Loss: 0.295763, Val Loss: 0.254010, LR: 0.001000
+Epoch 3/20: Train Loss: 0.195625, Val Loss: 0.176366, LR: 0.001000
+Epoch 4/20: Train Loss: 0.165509, Val Loss: 0.154558, LR: 0.001000
+Epoch 5/20: Train Loss: 0.149050, Val Loss: 0.153059, LR: 0.001000
+Epoch 6/20: Train Loss: 0.140184, Val Loss: 0.149850, LR: 0.001000
+Epoch 7/20: Train Loss: 0.132720, Val Loss: 0.143809, LR: 0.001000
+Epoch 8/20: Train Loss: 0.130372, Val Loss: 0.144130, LR: 0.001000
+Epoch 9/20: Train Loss: 0.122625, Val Loss: 0.155038, LR: 0.001000
+Epoch 10/20: Train Loss: 0.123145, Val Loss: 0.150157, LR: 0.001000
+Epoch 11/20: Train Loss: 0.118166, Val Loss: 0.153060, LR: 0.001000
+Epoch 12/20: Train Loss: 0.112108, Val Loss: 0.151696, LR: 0.001000
+Early stopping at epoch 12
+加载最佳模型
+训练曲线已保存到: Training_LSTM.png
+预测对比图已保存到: Predictions_LSTM_Temperature_C.png
+性能指标图已保存到: Metrics_LSTM_Temperature_C.png
+
+LSTM 在 Temperature (C) 上的性能:
+MSE: 0.1262
+MAE: 0.2640
+RMSE: 0.3552
+R2: 0.8571
+MAPE: 149.0865
+Direction_Accuracy: 74.8876
+模型比较图已保存到: Model_Comparison_Temperature_C.png
+
+Temperature (C) 上的模型性能比较:
+---------------------------------------------------------------------------------------------
+模型名称                 | RMSE       | MAE        | R2         | MAPE       | Direction_Accuracy
+---------------------------------------------------------------------------------------------
+基础Transformer        | 0.6182     | 0.4976     | 0.5672     | 217.2498   | 48.8884
+局部注意力Transformer     | 0.4651     | 0.3647     | 0.7550     | 178.0861   | 72.5189
+CNN-Transformer      | 0.3325     | 0.2480     | 0.8748     | 131.8631   | 74.1715
+LSTM                 | 0.3552     | 0.2640     | 0.8571     | 149.0865   | 74.8876
+---------------------------------------------------------------------------------------------
+
+开始 CNN-Transformer 在 Humidity 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.833082, Val Loss: 0.800382, LR: 0.001000
+Epoch 2/20: Train Loss: 0.758135, Val Loss: 0.788546, LR: 0.001000
+Epoch 3/20: Train Loss: 0.725361, Val Loss: 0.784052, LR: 0.001000
+Epoch 4/20: Train Loss: 0.605183, Val Loss: 0.591124, LR: 0.001000
+Epoch 5/20: Train Loss: 0.434417, Val Loss: 0.389824, LR: 0.001000
+Epoch 6/20: Train Loss: 0.338279, Val Loss: 0.383449, LR: 0.001000
+Epoch 7/20: Train Loss: 0.330343, Val Loss: 0.361402, LR: 0.001000
+Epoch 8/20: Train Loss: 0.311682, Val Loss: 0.378076, LR: 0.001000
+Epoch 9/20: Train Loss: 0.305833, Val Loss: 0.384417, LR: 0.001000
+Epoch 10/20: Train Loss: 0.297461, Val Loss: 0.386090, LR: 0.001000
+Epoch 11/20: Train Loss: 0.285828, Val Loss: 0.355952, LR: 0.001000
+Epoch 12/20: Train Loss: 0.273278, Val Loss: 0.380295, LR: 0.001000
+Epoch 13/20: Train Loss: 0.264784, Val Loss: 0.393196, LR: 0.001000
+Epoch 14/20: Train Loss: 0.257705, Val Loss: 0.378695, LR: 0.001000
+Epoch 15/20: Train Loss: 0.248402, Val Loss: 0.389464, LR: 0.001000
+Epoch 16/20: Train Loss: 0.236029, Val Loss: 0.398509, LR: 0.001000
+Early stopping at epoch 16
+加载最佳模型
+训练曲线已保存到: Training_CNN_Transformer.png
+预测对比图已保存到: Predictions_CNN_Transformer_Humidity.png
+性能指标图已保存到: Metrics_CNN_Transformer_Humidity.png
+
+CNN-Transformer 在 Humidity 上的性能:
+MSE: 0.3204
+MAE: 0.4249
+RMSE: 0.5660
+R2: 0.6604
+MAPE: 139.1921
+Direction_Accuracy: 60.2342
+
+开始 CNN-Transformer 在 Wind Speed (km/h) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 1.015975, Val Loss: 1.011374, LR: 0.001000
+Epoch 2/20: Train Loss: 0.953236, Val Loss: 0.870815, LR: 0.001000
+Epoch 3/20: Train Loss: 0.875080, Val Loss: 0.840597, LR: 0.001000
+Epoch 4/20: Train Loss: 0.856463, Val Loss: 0.837413, LR: 0.001000
+Epoch 5/20: Train Loss: 0.842729, Val Loss: 0.841070, LR: 0.001000
+Epoch 6/20: Train Loss: 0.830406, Val Loss: 0.839591, LR: 0.001000
+Epoch 7/20: Train Loss: 0.829975, Val Loss: 0.854516, LR: 0.001000
+Epoch 8/20: Train Loss: 0.807472, Val Loss: 0.821190, LR: 0.001000
+Epoch 9/20: Train Loss: 0.788207, Val Loss: 0.822711, LR: 0.001000
+Epoch 10/20: Train Loss: 0.766796, Val Loss: 0.852740, LR: 0.001000
+Epoch 11/20: Train Loss: 0.741415, Val Loss: 0.830232, LR: 0.001000
+Epoch 12/20: Train Loss: 0.715782, Val Loss: 0.828741, LR: 0.001000
+Epoch 13/20: Train Loss: 0.692296, Val Loss: 0.834689, LR: 0.001000
+Early stopping at epoch 13
+加载最佳模型
+训练曲线已保存到: Training_CNN_Transformer.png
+预测对比图已保存到: Predictions_CNN_Transformer_Wind_Speed_km_h.png
+性能指标图已保存到: Metrics_CNN_Transformer_Wind_Speed_km_h.png
+
+CNN-Transformer 在 Wind Speed (km/h) 上的性能:
+MSE: 0.7128
+MAE: 0.6428
+RMSE: 0.8443
+R2: 0.2066
+MAPE: 364.2109
+Direction_Accuracy: 51.3910
+
+开始 CNN-Transformer 在 Pressure (millibars) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 1.036115, Val Loss: 1.390291, LR: 0.001000
+Epoch 2/20: Train Loss: 1.033774, Val Loss: 1.388923, LR: 0.001000
+Epoch 3/20: Train Loss: 1.036372, Val Loss: 1.281331, LR: 0.001000
+Epoch 4/20: Train Loss: 1.078381, Val Loss: 1.090206, LR: 0.001000
+Epoch 5/20: Train Loss: 0.961830, Val Loss: 1.273347, LR: 0.001000
+Epoch 6/20: Train Loss: 0.954102, Val Loss: 1.115724, LR: 0.001000
+Epoch 7/20: Train Loss: 0.943272, Val Loss: 1.164470, LR: 0.001000
+Epoch 8/20: Train Loss: 0.939906, Val Loss: 1.030126, LR: 0.001000
+Epoch 9/20: Train Loss: 0.938256, Val Loss: 1.053176, LR: 0.001000
+Epoch 10/20: Train Loss: 0.944503, Val Loss: 1.227011, LR: 0.001000
+Epoch 11/20: Train Loss: 0.928308, Val Loss: 1.241692, LR: 0.001000
+Epoch 12/20: Train Loss: 0.933914, Val Loss: 1.196755, LR: 0.001000
+Epoch 13/20: Train Loss: 0.935866, Val Loss: 1.134223, LR: 0.001000
+Early stopping at epoch 13
+加载最佳模型
+训练曲线已保存到: Training_CNN_Transformer.png
+预测对比图已保存到: Predictions_CNN_Transformer_Pressure_millibars.png
+性能指标图已保存到: Metrics_CNN_Transformer_Pressure_millibars.png
+
+CNN-Transformer 在 Pressure (millibars) 上的性能:
+MSE: 0.4483
+MAE: 0.1264
+RMSE: 0.6695
+R2: 0.0966
+MAPE: 132.8153
+Direction_Accuracy: 49.0576
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始对 WeatherTransformer 进行超参数调优
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.815517, Val Loss: 0.457219, LR: 0.000100
+Epoch 2/20: Train Loss: 0.490317, Val Loss: 0.414735, LR: 0.000100
+Epoch 3/20: Train Loss: 0.448035, Val Loss: 0.433175, LR: 0.000100
+Epoch 4/20: Train Loss: 0.427512, Val Loss: 0.414932, LR: 0.000100
+Epoch 5/20: Train Loss: 0.408976, Val Loss: 0.428881, LR: 0.000100
+Epoch 6/20: Train Loss: 0.398602, Val Loss: 0.457589, LR: 0.000100
+Epoch 7/20: Train Loss: 0.390690, Val Loss: 0.436834, LR: 0.000100
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6464, MAE=0.5218, R2=0.5021
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.855729, Val Loss: 0.475395, LR: 0.000100
+Epoch 2/20: Train Loss: 0.545050, Val Loss: 0.485517, LR: 0.000100
+Epoch 3/20: Train Loss: 0.487277, Val Loss: 0.500141, LR: 0.000100
+Epoch 4/20: Train Loss: 0.459493, Val Loss: 0.487662, LR: 0.000100
+Epoch 5/20: Train Loss: 0.440574, Val Loss: 0.506156, LR: 0.000100
+Epoch 6/20: Train Loss: 0.427691, Val Loss: 0.515619, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6921, MAE=0.5479, R2=0.4292
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.686243, Val Loss: 0.421635, LR: 0.000200
+Epoch 2/20: Train Loss: 0.454890, Val Loss: 0.424249, LR: 0.000200
+Epoch 3/20: Train Loss: 0.426761, Val Loss: 0.432496, LR: 0.000200
+Epoch 4/20: Train Loss: 0.403812, Val Loss: 0.472525, LR: 0.000200
+Epoch 5/20: Train Loss: 0.390887, Val Loss: 0.426952, LR: 0.000200
+Epoch 6/20: Train Loss: 0.381413, Val Loss: 0.428132, LR: 0.000200
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6518, MAE=0.5219, R2=0.4937
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.773348, Val Loss: 0.451947, LR: 0.000200
+Epoch 2/20: Train Loss: 0.494583, Val Loss: 0.470537, LR: 0.000200
+Epoch 3/20: Train Loss: 0.453653, Val Loss: 0.496833, LR: 0.000200
+Epoch 4/20: Train Loss: 0.432612, Val Loss: 0.523584, LR: 0.000200
+Epoch 5/20: Train Loss: 0.415361, Val Loss: 0.544006, LR: 0.000200
+Epoch 6/20: Train Loss: 0.407212, Val Loss: 0.555327, LR: 0.000200
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6749, MAE=0.5370, R2=0.4572
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.812536, Val Loss: 0.445402, LR: 0.000100
+Epoch 2/20: Train Loss: 0.493041, Val Loss: 0.434030, LR: 0.000100
+Epoch 3/20: Train Loss: 0.447762, Val Loss: 0.459018, LR: 0.000100
+Epoch 4/20: Train Loss: 0.422287, Val Loss: 0.420947, LR: 0.000100
+Epoch 5/20: Train Loss: 0.401858, Val Loss: 0.405172, LR: 0.000100
+Epoch 6/20: Train Loss: 0.390836, Val Loss: 0.418499, LR: 0.000100
+Epoch 7/20: Train Loss: 0.384341, Val Loss: 0.448389, LR: 0.000100
+Epoch 8/20: Train Loss: 0.377217, Val Loss: 0.427767, LR: 0.000100
+Epoch 9/20: Train Loss: 0.370860, Val Loss: 0.414538, LR: 0.000100
+Epoch 10/20: Train Loss: 0.365615, Val Loss: 0.406893, LR: 0.000100
+Early stopping at epoch 10
+加载最佳模型
+结果: RMSE=0.6389, MAE=0.5166, R2=0.5136
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.821863, Val Loss: 0.491356, LR: 0.000100
+Epoch 2/20: Train Loss: 0.529582, Val Loss: 0.484460, LR: 0.000100
+Epoch 3/20: Train Loss: 0.476540, Val Loss: 0.515424, LR: 0.000100
+Epoch 4/20: Train Loss: 0.454048, Val Loss: 0.536850, LR: 0.000100
+Epoch 5/20: Train Loss: 0.438457, Val Loss: 0.494083, LR: 0.000100
+Epoch 6/20: Train Loss: 0.426643, Val Loss: 0.565741, LR: 0.000100
+Epoch 7/20: Train Loss: 0.417731, Val Loss: 0.510337, LR: 0.000100
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6978, MAE=0.5588, R2=0.4198
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.674106, Val Loss: 0.427415, LR: 0.000200
+Epoch 2/20: Train Loss: 0.442650, Val Loss: 0.421467, LR: 0.000200
+Epoch 3/20: Train Loss: 0.411775, Val Loss: 0.405388, LR: 0.000200
+Epoch 4/20: Train Loss: 0.396547, Val Loss: 0.406772, LR: 0.000200
+Epoch 5/20: Train Loss: 0.384750, Val Loss: 0.433313, LR: 0.000200
+Epoch 6/20: Train Loss: 0.374516, Val Loss: 0.415722, LR: 0.000200
+Epoch 7/20: Train Loss: 0.366419, Val Loss: 0.408516, LR: 0.000200
+Epoch 8/20: Train Loss: 0.358291, Val Loss: 0.381626, LR: 0.000200
+Epoch 9/20: Train Loss: 0.351008, Val Loss: 0.384113, LR: 0.000200
+Epoch 10/20: Train Loss: 0.346695, Val Loss: 0.379182, LR: 0.000200
+Epoch 11/20: Train Loss: 0.341668, Val Loss: 0.404392, LR: 0.000200
+Epoch 12/20: Train Loss: 0.336068, Val Loss: 0.371756, LR: 0.000200
+Epoch 13/20: Train Loss: 0.333310, Val Loss: 0.397537, LR: 0.000200
+Epoch 14/20: Train Loss: 0.329968, Val Loss: 0.407395, LR: 0.000200
+Epoch 15/20: Train Loss: 0.326423, Val Loss: 0.443200, LR: 0.000200
+Epoch 16/20: Train Loss: 0.324367, Val Loss: 0.398496, LR: 0.000200
+Epoch 17/20: Train Loss: 0.320300, Val Loss: 0.397618, LR: 0.000200
+Early stopping at epoch 17
+加载最佳模型
+结果: RMSE=0.6114, MAE=0.4940, R2=0.5545
+
+尝试参数: {'d_model': 128, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.695763, Val Loss: 0.451250, LR: 0.000200
+Epoch 2/20: Train Loss: 0.481271, Val Loss: 0.456251, LR: 0.000200
+Epoch 3/20: Train Loss: 0.442685, Val Loss: 0.493149, LR: 0.000200
+Epoch 4/20: Train Loss: 0.421150, Val Loss: 0.464536, LR: 0.000200
+Epoch 5/20: Train Loss: 0.410154, Val Loss: 0.509277, LR: 0.000200
+Epoch 6/20: Train Loss: 0.400757, Val Loss: 0.477984, LR: 0.000200
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6746, MAE=0.5375, R2=0.4578
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.777585, Val Loss: 0.436274, LR: 0.000100
+Epoch 2/20: Train Loss: 0.482079, Val Loss: 0.421729, LR: 0.000100
+Epoch 3/20: Train Loss: 0.444889, Val Loss: 0.410322, LR: 0.000100
+Epoch 4/20: Train Loss: 0.419171, Val Loss: 0.407832, LR: 0.000100
+Epoch 5/20: Train Loss: 0.402101, Val Loss: 0.428389, LR: 0.000100
+Epoch 6/20: Train Loss: 0.392297, Val Loss: 0.425451, LR: 0.000100
+Epoch 7/20: Train Loss: 0.385681, Val Loss: 0.429838, LR: 0.000100
+Epoch 8/20: Train Loss: 0.378875, Val Loss: 0.440962, LR: 0.000100
+Epoch 9/20: Train Loss: 0.372615, Val Loss: 0.439374, LR: 0.000100
+Early stopping at epoch 9
+加载最佳模型
+结果: RMSE=0.6411, MAE=0.5182, R2=0.5103
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.858643, Val Loss: 0.468079, LR: 0.000100
+Epoch 2/20: Train Loss: 0.530270, Val Loss: 0.475748, LR: 0.000100
+Epoch 3/20: Train Loss: 0.480916, Val Loss: 0.483590, LR: 0.000100
+Epoch 4/20: Train Loss: 0.453688, Val Loss: 0.514595, LR: 0.000100
+Epoch 5/20: Train Loss: 0.434487, Val Loss: 0.568875, LR: 0.000100
+Epoch 6/20: Train Loss: 0.424685, Val Loss: 0.543412, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6866, MAE=0.5488, R2=0.4382
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.715813, Val Loss: 0.426656, LR: 0.000200
+Epoch 2/20: Train Loss: 0.442449, Val Loss: 0.441940, LR: 0.000200
+Epoch 3/20: Train Loss: 0.407982, Val Loss: 0.427339, LR: 0.000200
+Epoch 4/20: Train Loss: 0.392517, Val Loss: 0.446737, LR: 0.000200
+Epoch 5/20: Train Loss: 0.383417, Val Loss: 0.406566, LR: 0.000200
+Epoch 6/20: Train Loss: 0.375873, Val Loss: 0.406746, LR: 0.000200
+Epoch 7/20: Train Loss: 0.366668, Val Loss: 0.394075, LR: 0.000200
+Epoch 8/20: Train Loss: 0.356740, Val Loss: 0.394340, LR: 0.000200
+Epoch 9/20: Train Loss: 0.349685, Val Loss: 0.379435, LR: 0.000200
+Epoch 10/20: Train Loss: 0.343092, Val Loss: 0.406353, LR: 0.000200
+Epoch 11/20: Train Loss: 0.336644, Val Loss: 0.416493, LR: 0.000200
+Epoch 12/20: Train Loss: 0.333463, Val Loss: 0.385736, LR: 0.000200
+Epoch 13/20: Train Loss: 0.331114, Val Loss: 0.357064, LR: 0.000200
+Epoch 14/20: Train Loss: 0.326515, Val Loss: 0.354413, LR: 0.000200
+Epoch 15/20: Train Loss: 0.323590, Val Loss: 0.386125, LR: 0.000200
+Epoch 16/20: Train Loss: 0.318057, Val Loss: 0.416717, LR: 0.000200
+Epoch 17/20: Train Loss: 0.316259, Val Loss: 0.393085, LR: 0.000200
+Epoch 18/20: Train Loss: 0.315320, Val Loss: 0.374603, LR: 0.000200
+Epoch 19/20: Train Loss: 0.309911, Val Loss: 0.360603, LR: 0.000200
+Early stopping at epoch 19
+加载最佳模型
+结果: RMSE=0.5977, MAE=0.4826, R2=0.5743
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.743368, Val Loss: 0.468786, LR: 0.000200
+Epoch 2/20: Train Loss: 0.480960, Val Loss: 0.490158, LR: 0.000200
+Epoch 3/20: Train Loss: 0.442438, Val Loss: 0.451198, LR: 0.000200
+Epoch 4/20: Train Loss: 0.418650, Val Loss: 0.459249, LR: 0.000200
+Epoch 5/20: Train Loss: 0.405037, Val Loss: 0.453813, LR: 0.000200
+Epoch 6/20: Train Loss: 0.393937, Val Loss: 0.493475, LR: 0.000200
+Epoch 7/20: Train Loss: 0.385019, Val Loss: 0.462566, LR: 0.000200
+Epoch 8/20: Train Loss: 0.377756, Val Loss: 0.475246, LR: 0.000200
+Early stopping at epoch 8
+加载最佳模型
+结果: RMSE=0.6740, MAE=0.5472, R2=0.4587
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.831858, Val Loss: 0.445137, LR: 0.000100
+Epoch 2/20: Train Loss: 0.493513, Val Loss: 0.409264, LR: 0.000100
+Epoch 3/20: Train Loss: 0.444530, Val Loss: 0.443072, LR: 0.000100
+Epoch 4/20: Train Loss: 0.416545, Val Loss: 0.428453, LR: 0.000100
+Epoch 5/20: Train Loss: 0.403719, Val Loss: 0.420566, LR: 0.000100
+Epoch 6/20: Train Loss: 0.393308, Val Loss: 0.397629, LR: 0.000100
+Epoch 7/20: Train Loss: 0.386849, Val Loss: 0.434159, LR: 0.000100
+Epoch 8/20: Train Loss: 0.383280, Val Loss: 0.413444, LR: 0.000100
+Epoch 9/20: Train Loss: 0.376727, Val Loss: 0.411959, LR: 0.000100
+Epoch 10/20: Train Loss: 0.369000, Val Loss: 0.405020, LR: 0.000100
+Epoch 11/20: Train Loss: 0.363932, Val Loss: 0.406903, LR: 0.000100
+Early stopping at epoch 11
+加载最佳模型
+结果: RMSE=0.6329, MAE=0.5098, R2=0.5227
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.848898, Val Loss: 0.505628, LR: 0.000100
+Epoch 2/20: Train Loss: 0.542968, Val Loss: 0.466730, LR: 0.000100
+Epoch 3/20: Train Loss: 0.481193, Val Loss: 0.462528, LR: 0.000100
+Epoch 4/20: Train Loss: 0.452454, Val Loss: 0.488912, LR: 0.000100
+Epoch 5/20: Train Loss: 0.435164, Val Loss: 0.498319, LR: 0.000100
+Epoch 6/20: Train Loss: 0.423772, Val Loss: 0.498269, LR: 0.000100
+Epoch 7/20: Train Loss: 0.413343, Val Loss: 0.471573, LR: 0.000100
+Epoch 8/20: Train Loss: 0.407659, Val Loss: 0.466529, LR: 0.000100
+Early stopping at epoch 8
+加载最佳模型
+结果: RMSE=0.6824, MAE=0.5499, R2=0.4450
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.656937, Val Loss: 0.403138, LR: 0.000200
+Epoch 2/20: Train Loss: 0.444582, Val Loss: 0.418524, LR: 0.000200
+Epoch 3/20: Train Loss: 0.415105, Val Loss: 0.405877, LR: 0.000200
+Epoch 4/20: Train Loss: 0.397562, Val Loss: 0.395282, LR: 0.000200
+Epoch 5/20: Train Loss: 0.385009, Val Loss: 0.410075, LR: 0.000200
+Epoch 6/20: Train Loss: 0.374716, Val Loss: 0.397672, LR: 0.000200
+Epoch 7/20: Train Loss: 0.366952, Val Loss: 0.390284, LR: 0.000200
+Epoch 8/20: Train Loss: 0.358657, Val Loss: 0.379084, LR: 0.000200
+Epoch 9/20: Train Loss: 0.352378, Val Loss: 0.377606, LR: 0.000200
+Epoch 10/20: Train Loss: 0.348386, Val Loss: 0.377649, LR: 0.000200
+Epoch 11/20: Train Loss: 0.344633, Val Loss: 0.381480, LR: 0.000200
+Epoch 12/20: Train Loss: 0.339728, Val Loss: 0.375181, LR: 0.000200
+Epoch 13/20: Train Loss: 0.337329, Val Loss: 0.370003, LR: 0.000200
+Epoch 14/20: Train Loss: 0.329813, Val Loss: 0.368218, LR: 0.000200
+Epoch 15/20: Train Loss: 0.328156, Val Loss: 0.374370, LR: 0.000200
+Epoch 16/20: Train Loss: 0.326082, Val Loss: 0.364199, LR: 0.000200
+Epoch 17/20: Train Loss: 0.318066, Val Loss: 0.364806, LR: 0.000200
+Epoch 18/20: Train Loss: 0.317781, Val Loss: 0.373580, LR: 0.000200
+Epoch 19/20: Train Loss: 0.315107, Val Loss: 0.364774, LR: 0.000200
+Epoch 20/20: Train Loss: 0.312456, Val Loss: 0.365658, LR: 0.000200
+加载最佳模型
+结果: RMSE=0.6045, MAE=0.4862, R2=0.5646
+
+尝试参数: {'d_model': 128, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.743740, Val Loss: 0.474771, LR: 0.000200
+Epoch 2/20: Train Loss: 0.476975, Val Loss: 0.483038, LR: 0.000200
+Epoch 3/20: Train Loss: 0.437871, Val Loss: 0.505605, LR: 0.000200
+Epoch 4/20: Train Loss: 0.416296, Val Loss: 0.486920, LR: 0.000200
+Epoch 5/20: Train Loss: 0.405052, Val Loss: 0.524214, LR: 0.000200
+Epoch 6/20: Train Loss: 0.394792, Val Loss: 0.526799, LR: 0.000200
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6911, MAE=0.5515, R2=0.4308
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.633202, Val Loss: 0.439875, LR: 0.000100
+Epoch 2/20: Train Loss: 0.445507, Val Loss: 0.453819, LR: 0.000100
+Epoch 3/20: Train Loss: 0.414495, Val Loss: 0.410053, LR: 0.000100
+Epoch 4/20: Train Loss: 0.398729, Val Loss: 0.445796, LR: 0.000100
+Epoch 5/20: Train Loss: 0.388233, Val Loss: 0.453380, LR: 0.000100
+Epoch 6/20: Train Loss: 0.379434, Val Loss: 0.426321, LR: 0.000100
+Epoch 7/20: Train Loss: 0.372698, Val Loss: 0.423275, LR: 0.000100
+Epoch 8/20: Train Loss: 0.366814, Val Loss: 0.434982, LR: 0.000100
+Early stopping at epoch 8
+加载最佳模型
+结果: RMSE=0.6427, MAE=0.5189, R2=0.5077
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.662576, Val Loss: 0.496555, LR: 0.000100
+Epoch 2/20: Train Loss: 0.469075, Val Loss: 0.546037, LR: 0.000100
+Epoch 3/20: Train Loss: 0.435880, Val Loss: 0.546432, LR: 0.000100
+Epoch 4/20: Train Loss: 0.415251, Val Loss: 0.571660, LR: 0.000100
+Epoch 5/20: Train Loss: 0.403581, Val Loss: 0.551172, LR: 0.000100
+Epoch 6/20: Train Loss: 0.396221, Val Loss: 0.528975, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.7073, MAE=0.5647, R2=0.4039
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.559584, Val Loss: 0.440482, LR: 0.000200
+Epoch 2/20: Train Loss: 0.413479, Val Loss: 0.435521, LR: 0.000200
+Epoch 3/20: Train Loss: 0.392084, Val Loss: 0.440276, LR: 0.000200
+Epoch 4/20: Train Loss: 0.384463, Val Loss: 0.416533, LR: 0.000200
+Epoch 5/20: Train Loss: 0.373790, Val Loss: 0.438301, LR: 0.000200
+Epoch 6/20: Train Loss: 0.362886, Val Loss: 0.420330, LR: 0.000200
+Epoch 7/20: Train Loss: 0.357499, Val Loss: 0.422668, LR: 0.000200
+Epoch 8/20: Train Loss: 0.348300, Val Loss: 0.421829, LR: 0.000200
+Epoch 9/20: Train Loss: 0.340422, Val Loss: 0.452104, LR: 0.000200
+Early stopping at epoch 9
+加载最佳模型
+结果: RMSE=0.6476, MAE=0.5219, R2=0.5003
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.588714, Val Loss: 0.487918, LR: 0.000200
+Epoch 2/20: Train Loss: 0.441968, Val Loss: 0.501003, LR: 0.000200
+Epoch 3/20: Train Loss: 0.413569, Val Loss: 0.533113, LR: 0.000200
+Epoch 4/20: Train Loss: 0.400718, Val Loss: 0.496897, LR: 0.000200
+Epoch 5/20: Train Loss: 0.390645, Val Loss: 0.532050, LR: 0.000200
+Epoch 6/20: Train Loss: 0.380516, Val Loss: 0.514603, LR: 0.000200
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.7005, MAE=0.5643, R2=0.4152
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.614176, Val Loss: 0.412089, LR: 0.000100
+Epoch 2/20: Train Loss: 0.431100, Val Loss: 0.414837, LR: 0.000100
+Epoch 3/20: Train Loss: 0.397682, Val Loss: 0.417150, LR: 0.000100
+Epoch 4/20: Train Loss: 0.386168, Val Loss: 0.434007, LR: 0.000100
+Epoch 5/20: Train Loss: 0.378407, Val Loss: 0.426694, LR: 0.000100
+Epoch 6/20: Train Loss: 0.370018, Val Loss: 0.413518, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6446, MAE=0.5179, R2=0.5049
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.659221, Val Loss: 0.447230, LR: 0.000100
+Epoch 2/20: Train Loss: 0.471172, Val Loss: 0.486930, LR: 0.000100
+Epoch 3/20: Train Loss: 0.438069, Val Loss: 0.495602, LR: 0.000100
+Epoch 4/20: Train Loss: 0.415667, Val Loss: 0.518213, LR: 0.000100
+Epoch 5/20: Train Loss: 0.403886, Val Loss: 0.525161, LR: 0.000100
+Epoch 6/20: Train Loss: 0.393275, Val Loss: 0.502565, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6715, MAE=0.5389, R2=0.4627
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.533130, Val Loss: 0.403543, LR: 0.000200
+Epoch 2/20: Train Loss: 0.409134, Val Loss: 0.417114, LR: 0.000200
+Epoch 3/20: Train Loss: 0.392199, Val Loss: 0.430859, LR: 0.000200
+Epoch 4/20: Train Loss: 0.376194, Val Loss: 0.396982, LR: 0.000200
+Epoch 5/20: Train Loss: 0.365871, Val Loss: 0.400296, LR: 0.000200
+Epoch 6/20: Train Loss: 0.355322, Val Loss: 0.399967, LR: 0.000200
+Epoch 7/20: Train Loss: 0.346989, Val Loss: 0.395319, LR: 0.000200
+Epoch 8/20: Train Loss: 0.340438, Val Loss: 0.367113, LR: 0.000200
+Epoch 9/20: Train Loss: 0.331033, Val Loss: 0.368802, LR: 0.000200
+Epoch 10/20: Train Loss: 0.323292, Val Loss: 0.382465, LR: 0.000200
+Epoch 11/20: Train Loss: 0.313994, Val Loss: 0.400982, LR: 0.000200
+Epoch 12/20: Train Loss: 0.311926, Val Loss: 0.386847, LR: 0.000200
+Epoch 13/20: Train Loss: 0.303913, Val Loss: 0.403445, LR: 0.000200
+Early stopping at epoch 13
+加载最佳模型
+结果: RMSE=0.6083, MAE=0.4865, R2=0.5591
+
+尝试参数: {'d_model': 256, 'nhead': 4, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.581470, Val Loss: 0.500606, LR: 0.000200
+Epoch 2/20: Train Loss: 0.443238, Val Loss: 0.524690, LR: 0.000200
+Epoch 3/20: Train Loss: 0.410125, Val Loss: 0.491682, LR: 0.000200
+Epoch 4/20: Train Loss: 0.396139, Val Loss: 0.472051, LR: 0.000200
+Epoch 5/20: Train Loss: 0.385967, Val Loss: 0.459982, LR: 0.000200
+Epoch 6/20: Train Loss: 0.378595, Val Loss: 0.409299, LR: 0.000200
+Epoch 7/20: Train Loss: 0.372888, Val Loss: 0.479303, LR: 0.000200
+Epoch 8/20: Train Loss: 0.367304, Val Loss: 0.412649, LR: 0.000200
+Epoch 9/20: Train Loss: 0.357280, Val Loss: 0.412721, LR: 0.000200
+Epoch 10/20: Train Loss: 0.351460, Val Loss: 0.404410, LR: 0.000200
+Epoch 11/20: Train Loss: 0.345942, Val Loss: 0.412737, LR: 0.000200
+Epoch 12/20: Train Loss: 0.342413, Val Loss: 0.448741, LR: 0.000200
+Epoch 13/20: Train Loss: 0.335139, Val Loss: 0.430308, LR: 0.000200
+Epoch 14/20: Train Loss: 0.329138, Val Loss: 0.436228, LR: 0.000200
+Epoch 15/20: Train Loss: 0.326155, Val Loss: 0.442712, LR: 0.000200
+Early stopping at epoch 15
+加载最佳模型
+结果: RMSE=0.6376, MAE=0.5098, R2=0.5155
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.638772, Val Loss: 0.430097, LR: 0.000100
+Epoch 2/20: Train Loss: 0.436111, Val Loss: 0.411267, LR: 0.000100
+Epoch 3/20: Train Loss: 0.404505, Val Loss: 0.433725, LR: 0.000100
+Epoch 4/20: Train Loss: 0.389508, Val Loss: 0.430514, LR: 0.000100
+Epoch 5/20: Train Loss: 0.380762, Val Loss: 0.436533, LR: 0.000100
+Epoch 6/20: Train Loss: 0.372165, Val Loss: 0.434149, LR: 0.000100
+Epoch 7/20: Train Loss: 0.364766, Val Loss: 0.422162, LR: 0.000100
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6438, MAE=0.5196, R2=0.5061
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.686200, Val Loss: 0.445762, LR: 0.000100
+Epoch 2/20: Train Loss: 0.468626, Val Loss: 0.463847, LR: 0.000100
+Epoch 3/20: Train Loss: 0.440320, Val Loss: 0.506323, LR: 0.000100
+Epoch 4/20: Train Loss: 0.416284, Val Loss: 0.503121, LR: 0.000100
+Epoch 5/20: Train Loss: 0.401275, Val Loss: 0.482348, LR: 0.000100
+Epoch 6/20: Train Loss: 0.392861, Val Loss: 0.492013, LR: 0.000100
+Early stopping at epoch 6
+加载最佳模型
+结果: RMSE=0.6703, MAE=0.5375, R2=0.4646
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.562210, Val Loss: 0.420118, LR: 0.000200
+Epoch 2/20: Train Loss: 0.415739, Val Loss: 0.395025, LR: 0.000200
+Epoch 3/20: Train Loss: 0.390826, Val Loss: 0.421983, LR: 0.000200
+Epoch 4/20: Train Loss: 0.381779, Val Loss: 0.420980, LR: 0.000200
+Epoch 5/20: Train Loss: 0.370524, Val Loss: 0.401441, LR: 0.000200
+Epoch 6/20: Train Loss: 0.359939, Val Loss: 0.406764, LR: 0.000200
+Epoch 7/20: Train Loss: 0.353311, Val Loss: 0.422246, LR: 0.000200
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6309, MAE=0.5090, R2=0.5256
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.598636, Val Loss: 0.446470, LR: 0.000200
+Epoch 2/20: Train Loss: 0.444395, Val Loss: 0.422682, LR: 0.000200
+Epoch 3/20: Train Loss: 0.410116, Val Loss: 0.448440, LR: 0.000200
+Epoch 4/20: Train Loss: 0.394732, Val Loss: 0.449536, LR: 0.000200
+Epoch 5/20: Train Loss: 0.388283, Val Loss: 0.475941, LR: 0.000200
+Epoch 6/20: Train Loss: 0.378970, Val Loss: 0.451472, LR: 0.000200
+Epoch 7/20: Train Loss: 0.374616, Val Loss: 0.446765, LR: 0.000200
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6527, MAE=0.5288, R2=0.4924
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.580568, Val Loss: 0.403404, LR: 0.000100
+Epoch 2/20: Train Loss: 0.433958, Val Loss: 0.398529, LR: 0.000100
+Epoch 3/20: Train Loss: 0.405569, Val Loss: 0.418306, LR: 0.000100
+Epoch 4/20: Train Loss: 0.389123, Val Loss: 0.427861, LR: 0.000100
+Epoch 5/20: Train Loss: 0.376745, Val Loss: 0.394510, LR: 0.000100
+Epoch 6/20: Train Loss: 0.369532, Val Loss: 0.398524, LR: 0.000100
+Epoch 7/20: Train Loss: 0.361808, Val Loss: 0.373677, LR: 0.000100
+Epoch 8/20: Train Loss: 0.355588, Val Loss: 0.372290, LR: 0.000100
+Epoch 9/20: Train Loss: 0.348752, Val Loss: 0.369056, LR: 0.000100
+Epoch 10/20: Train Loss: 0.343161, Val Loss: 0.369398, LR: 0.000100
+Epoch 11/20: Train Loss: 0.340710, Val Loss: 0.365348, LR: 0.000100
+Epoch 12/20: Train Loss: 0.334532, Val Loss: 0.358768, LR: 0.000100
+Epoch 13/20: Train Loss: 0.333911, Val Loss: 0.369100, LR: 0.000100
+Epoch 14/20: Train Loss: 0.329903, Val Loss: 0.367958, LR: 0.000100
+Epoch 15/20: Train Loss: 0.323416, Val Loss: 0.356317, LR: 0.000100
+Epoch 16/20: Train Loss: 0.321770, Val Loss: 0.376093, LR: 0.000100
+Epoch 17/20: Train Loss: 0.318244, Val Loss: 0.363194, LR: 0.000100
+Epoch 18/20: Train Loss: 0.314950, Val Loss: 0.366949, LR: 0.000100
+Epoch 19/20: Train Loss: 0.310739, Val Loss: 0.365350, LR: 0.000100
+Epoch 20/20: Train Loss: 0.308483, Val Loss: 0.365980, LR: 0.000100
+Early stopping at epoch 20
+加载最佳模型
+结果: RMSE=0.5988, MAE=0.4809, R2=0.5728
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0001, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.656233, Val Loss: 0.496654, LR: 0.000100
+Epoch 2/20: Train Loss: 0.467760, Val Loss: 0.521877, LR: 0.000100
+Epoch 3/20: Train Loss: 0.432046, Val Loss: 0.485703, LR: 0.000100
+Epoch 4/20: Train Loss: 0.412373, Val Loss: 0.467531, LR: 0.000100
+Epoch 5/20: Train Loss: 0.403422, Val Loss: 0.476925, LR: 0.000100
+Epoch 6/20: Train Loss: 0.393712, Val Loss: 0.492778, LR: 0.000100
+Epoch 7/20: Train Loss: 0.386323, Val Loss: 0.513889, LR: 0.000100
+Epoch 8/20: Train Loss: 0.381412, Val Loss: 0.492032, LR: 0.000100
+Epoch 9/20: Train Loss: 0.374328, Val Loss: 0.454408, LR: 0.000100
+Epoch 10/20: Train Loss: 0.371934, Val Loss: 0.496970, LR: 0.000100
+Epoch 11/20: Train Loss: 0.367135, Val Loss: 0.467925, LR: 0.000100
+Epoch 12/20: Train Loss: 0.362012, Val Loss: 0.424075, LR: 0.000100
+Epoch 13/20: Train Loss: 0.357532, Val Loss: 0.482028, LR: 0.000100
+Epoch 14/20: Train Loss: 0.353537, Val Loss: 0.492037, LR: 0.000100
+Epoch 15/20: Train Loss: 0.346707, Val Loss: 0.407563, LR: 0.000100
+Epoch 16/20: Train Loss: 0.345620, Val Loss: 0.442793, LR: 0.000100
+Epoch 17/20: Train Loss: 0.340463, Val Loss: 0.528772, LR: 0.000100
+Epoch 18/20: Train Loss: 0.340037, Val Loss: 0.436209, LR: 0.000100
+Epoch 19/20: Train Loss: 0.336540, Val Loss: 0.493409, LR: 0.000100
+Epoch 20/20: Train Loss: 0.331490, Val Loss: 0.498637, LR: 0.000100
+Early stopping at epoch 20
+加载最佳模型
+结果: RMSE=0.6403, MAE=0.5170, R2=0.5114
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.1}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.551536, Val Loss: 0.404015, LR: 0.000200
+Epoch 2/20: Train Loss: 0.417950, Val Loss: 0.400708, LR: 0.000200
+Epoch 3/20: Train Loss: 0.394228, Val Loss: 0.426008, LR: 0.000200
+Epoch 4/20: Train Loss: 0.380152, Val Loss: 0.405621, LR: 0.000200
+Epoch 5/20: Train Loss: 0.367440, Val Loss: 0.404481, LR: 0.000200
+Epoch 6/20: Train Loss: 0.357075, Val Loss: 0.431067, LR: 0.000200
+Epoch 7/20: Train Loss: 0.349041, Val Loss: 0.421214, LR: 0.000200
+Early stopping at epoch 7
+加载最佳模型
+结果: RMSE=0.6352, MAE=0.5118, R2=0.5192
+
+尝试参数: {'d_model': 256, 'nhead': 8, 'num_layers': 3, 'learning_rate': 0.0002, 'dropout': 0.2}
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.584088, Val Loss: 0.450419, LR: 0.000200
+Epoch 2/20: Train Loss: 0.435902, Val Loss: 0.477585, LR: 0.000200
+Epoch 3/20: Train Loss: 0.410258, Val Loss: 0.433582, LR: 0.000200
+Epoch 4/20: Train Loss: 0.396819, Val Loss: 0.462180, LR: 0.000200
+Epoch 5/20: Train Loss: 0.383941, Val Loss: 0.426043, LR: 0.000200
+Epoch 6/20: Train Loss: 0.375484, Val Loss: 0.411526, LR: 0.000200
+Epoch 7/20: Train Loss: 0.367131, Val Loss: 0.398397, LR: 0.000200
+Epoch 8/20: Train Loss: 0.357599, Val Loss: 0.419664, LR: 0.000200
+Epoch 9/20: Train Loss: 0.351978, Val Loss: 0.426612, LR: 0.000200
+Epoch 10/20: Train Loss: 0.347604, Val Loss: 0.400047, LR: 0.000200
+Epoch 11/20: Train Loss: 0.340812, Val Loss: 0.425034, LR: 0.000200
+Epoch 12/20: Train Loss: 0.337337, Val Loss: 0.442180, LR: 0.000200
+Early stopping at epoch 12
+加载最佳模型
+结果: RMSE=0.6333, MAE=0.5121, R2=0.5220
+
+超参数调优结果:
+最佳参数: {'d_model': 128, 'nhead': 8, 'num_layers': 2, 'learning_rate': 0.0002, 'dropout': 0.1}
+最佳验证损失: 0.360603
+最佳指标: RMSE=0.5977, R2=0.5743
+超参数调优结果已保存到: Hyperparameter_Tuning_WeatherTransformer.png
+
+开始 调优后的Transformer 在 Temperature (C) 上的实验
+创建序列数据: seq_length=168, pred_length=24
+序列创建完成: X.shape=(96262, 168, 23), y.shape=(96262, 24, 1)
+创建了 96262 个序列，每个序列长度为 168，预测长度为 24
+数据准备完成:
+训练集: 57756 样本
+验证集: 19253 样本
+测试集: 19253 样本
+开始训练，epochs: 20
+Epoch 1/20: Train Loss: 0.524684, Val Loss: 0.400343, LR: 0.001000
+Epoch 2/20: Train Loss: 0.393462, Val Loss: 0.425176, LR: 0.001000
+Epoch 3/20: Train Loss: 0.377320, Val Loss: 0.385314, LR: 0.001000
+Epoch 4/20: Train Loss: 0.360161, Val Loss: 0.376806, LR: 0.001000
+Epoch 5/20: Train Loss: 0.346510, Val Loss: 0.405489, LR: 0.001000
+Epoch 6/20: Train Loss: 0.335088, Val Loss: 0.376734, LR: 0.001000
+Epoch 7/20: Train Loss: 0.324577, Val Loss: 0.381373, LR: 0.001000
+Epoch 8/20: Train Loss: 0.320206, Val Loss: 0.364126, LR: 0.001000
+Epoch 9/20: Train Loss: 0.307750, Val Loss: 0.364366, LR: 0.001000
+Epoch 10/20: Train Loss: 0.300389, Val Loss: 0.364378, LR: 0.001000
+Epoch 11/20: Train Loss: 0.293577, Val Loss: 0.374235, LR: 0.001000
+Epoch 12/20: Train Loss: 0.288473, Val Loss: 0.360816, LR: 0.001000
+Epoch 13/20: Train Loss: 0.283864, Val Loss: 0.363361, LR: 0.001000
+Epoch 14/20: Train Loss: 0.276882, Val Loss: 0.366698, LR: 0.001000
+Epoch 15/20: Train Loss: 0.273336, Val Loss: 0.366853, LR: 0.001000
+Epoch 16/20: Train Loss: 0.269268, Val Loss: 0.350359, LR: 0.001000
+Epoch 17/20: Train Loss: 0.263692, Val Loss: 0.380697, LR: 0.001000
+Epoch 18/20: Train Loss: 0.261621, Val Loss: 0.364592, LR: 0.001000
+Epoch 19/20: Train Loss: 0.255614, Val Loss: 0.363839, LR: 0.001000
+Epoch 20/20: Train Loss: 0.252628, Val Loss: 0.361250, LR: 0.001000
+加载最佳模型
+训练曲线已保存到: Training_调优后的Transformer.png
+预测对比图已保存到: Predictions_调优后的Transformer_Temperature_C.png
+性能指标图已保存到: Metrics_调优后的Transformer_Temperature_C.png
+
+调优后的Transformer 在 Temperature (C) 上的性能:
+MSE: 0.3590
+MAE: 0.4811
+RMSE: 0.5991
+R2: 0.5935
+MAPE: 219.3564
+Direction_Accuracy: 48.9987
+模型比较图已保存到: Model_Comparison_Temperature_C.png
+
+Temperature (C) 上的模型性能比较:
+---------------------------------------------------------------------------------------------
+模型名称                 | RMSE       | MAE        | R2         | MAPE       | Direction_Accuracy
+---------------------------------------------------------------------------------------------
+基础Transformer        | 0.6182     | 0.4976     | 0.5672     | 217.2498   | 48.8884
+局部注意力Transformer     | 0.4651     | 0.3647     | 0.7550     | 178.0861   | 72.5189
+CNN-Transformer      | 0.3325     | 0.2480     | 0.8748     | 131.8631   | 74.1715
+LSTM                 | 0.3552     | 0.2640     | 0.8571     | 149.0865   | 74.8876
+调优后的Transformer      | 0.5991     | 0.4811     | 0.5935     | 219.3564   | 48.9987
+---------------------------------------------------------------------------------------------
